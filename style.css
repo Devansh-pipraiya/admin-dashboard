@@ -1,0 +1,23 @@
+*{
+    outline: 1px solid black;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --fonts : Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --sidebar-bg:      #1a3a5c;
+    --sidebar-text:    #cde0f5;
+    --page-bg:         #f4f7fa;
+    --card-bg:         #ffffff;
+    --card-border:     #dde6f0;
+    --text-primary:    #1a1a2e;
+    --text-muted:      #8a94a6;
+}
+
+body{
+    height: 100vh;
+    font-family: var(--fonts);
+    display: grid;
+}
