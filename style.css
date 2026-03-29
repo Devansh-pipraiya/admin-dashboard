@@ -161,12 +161,41 @@ a:first-child svg{
     /* height: calc(1rem + 1vw ); */
 }
 
+/*================== MAIN SECTION ================== */
 
 main{
     grid-area: main;
     background-color: var(--page-bg);
 }
+#project-cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    grid-template-rows:auto ;
+    grid-auto-rows: minmax(150px, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    color: var(--text-primary);
+}
+
+.cards{
+    display:grid;
+    background-color: var(--card-bg);
+    grid-template-rows: auto 1fr auto;
+    padding: 1rem;
+}
+
+.cards > p {
+    color: var(--text-muted);
+}
+
+.heading{
+    grid-column: 1 / -1;
+    max-height: min-content;
+}
+
+/*================== ASIDE SECTION ================== */
 
 aside{
     grid-area: aside;
+    background-color: var(--page-bg);
 }
