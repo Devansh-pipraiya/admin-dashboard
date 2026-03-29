@@ -1,5 +1,5 @@
 *{
-    /* outline: 2px solid black; */
+    /* outline: 1px solid black; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,7 +10,6 @@
   max-width: 100%;
   height: auto;
 } */
-
 
 :root{
     --fonts : Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -33,10 +32,13 @@ body{
     "nav main aside";
 }
 
+/*================== HEADER SECTION ================== */
+
 header{
     grid-area: header;
     background-color: var(--card-bg);
-    height: 20vh;
+    height: 16vh;
+    min-height: max-content;
     display: grid;
     grid-template: 1fr 1.5fr / auto 1fr auto auto;
     gap: 1rem;
@@ -44,13 +46,13 @@ header{
     align-items: center;
     grid-template-areas: 
     "search-icon search-input  bell-icon profile"
-    "profile-big profile-big button button" ;
+    "profile-big profile-big profile-big profile-big" ;
 }
 
 header > input {
     border-radius: 20px;
     max-width: 500px;
-    padding: 0.2rem 1rem;
+    padding: 0.3rem 1rem;
     font-family: inherit;
     background-color:  hsl(206, 15%, 90%);
     color: var(--text-muted);
@@ -69,11 +71,49 @@ header > svg {
     font-weight: 600;
     font-size: 1rem;
 }
-.avatar {
+.profile > .avatar {
   height: 2.5rem;
   border-radius: 50%; 
   object-fit: cover;  
 }
+
+.profile-big{
+    grid-area: profile-big;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    font-weight: 500;
+}
+.profile-big > .avatar {
+  height: 3.6rem;
+  border-radius: 50%; 
+  object-fit: cover;  
+}
+.profile-info{
+    min-width: max-content;
+}
+
+.buttons{
+    margin-left: auto;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 1rem;
+}
+.buttons > button{
+    border-radius: 20px;
+    padding: 0.4rem 1.6rem;
+    font-family: inherit;
+    border: none;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/*================== NAV SECTION ================== */
 
 nav{
     grid-area: nav;
