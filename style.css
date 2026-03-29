@@ -181,10 +181,11 @@ main{
     display:grid;
     background-color: var(--card-bg);
     grid-template-rows: auto 1fr auto;
+    border-radius: 12px;
     padding: 1rem;
 }
 
-.cards > p {
+.cards  p {
     color: var(--text-muted);
 }
 
@@ -198,4 +199,27 @@ main{
 aside{
     grid-area: aside;
     background-color: var(--page-bg);
+    display: grid;
+    align-content: start;   
+    gap:1rem;
+    padding: 1rem 2rem 1rem 0;
+}
+
+aside > .cards{
+    grid-template-rows: unset;
+    align-content: start;      
+    gap: 0.9rem;
+}
+aside > .cards p {
+    font-size: 0.9rem;
+}
+
+.trending-profile{
+    display: flex;
+    gap: 1rem;
+}
+.trending-profile > .avatar {
+  height: 3rem;
+  border-radius: 50%; 
+  object-fit: cover;  
 }
