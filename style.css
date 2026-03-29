@@ -1,5 +1,5 @@
 *{
-    /* outline: 1px solid black; */
+    /* outline: 2px solid black; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,7 +17,7 @@
     --sidebar-text:    #cde0f5;
     --page-bg:         #f4f7fa;
     --card-bg:         #ffffff;
-    --card-border:     #dde6f0;
+    --card-border:     #9fc3eb;
     --text-primary:    #1a1a2e;
     --text-muted:      #8a94a6;
 }
@@ -26,7 +26,7 @@ body{
     height: 100vh;
     font-family: var(--fonts);
     display: grid;
-    grid-template: auto 1fr / 1fr 3fr 1fr;
+    grid-template: auto 1fr / 0.9fr 3fr 1fr;
     grid-template-areas:
     "nav header header"
     "nav main aside";
@@ -51,7 +51,7 @@ header{
 
 header > input {
     border-radius: 20px;
-    max-width: 500px;
+    max-width: 600px;
     padding: 0.3rem 1rem;
     font-family: inherit;
     background-color:  hsl(206, 15%, 90%);
@@ -84,12 +84,23 @@ header > svg {
     display: flex;
     gap: 1rem;
     font-weight: 500;
+    color: var(--text-primary);
 }
 .profile-big > .avatar {
   height: 3.6rem;
+  width: 3.6rem;
   border-radius: 50%; 
   object-fit: cover;  
+  /* transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  cursor: zoom-in; */
 }
+/* .profile-big > .avatar:hover{
+    transform: scale(4);
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+} */
 .profile-info{
     min-width: max-content;
 }
@@ -134,7 +145,7 @@ nav{
 }
 
 nav a{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     /* font-size: calc(0.4rem + 1vw ); */
     text-decoration: none;
     color: var(--sidebar-text);
@@ -151,13 +162,13 @@ nav svg{
 }
 
 a:first-child{
-    font-size: 2rem;
+    font-size: 1.6rem;
     /* font-size: calc(1rem + 1vw ); */
     font-weight: 600;
     gap: 0.5rem;
 }
 a:first-child svg{
-    height: 2rem;
+    height: 2.4rem;
     /* height: calc(1rem + 1vw ); */
 }
 
@@ -171,10 +182,19 @@ main{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
     grid-template-rows:auto ;
-    grid-auto-rows: minmax(150px, 1fr);
-    gap: 1rem;
-    padding: 1rem;
+    grid-auto-rows: minmax(160px, 1fr);
+    gap: 1.2rem 1.6rem;
+    padding: 1.2rem 2rem;
     color: var(--text-primary);
+}
+#project-cards .cards{
+    padding: 1.6rem 1.4rem;
+    gap: 0.5rem;
+}
+
+#project-cards .cards:hover{
+    box-shadow: inset 8px 0 0 var(--card-border), 2px 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
 }
 
 .cards{
@@ -183,6 +203,8 @@ main{
     grid-template-rows: auto 1fr auto;
     border-radius: 12px;
     padding: 1rem;
+    box-shadow: inset 0 0 0 var(--card-border), 2px 2px 6px rgba(0, 0, 0, 0.08); /* explicitly defining inset 0 */
+    transition: all 0.2s ease-out;
 }
 
 .cards  p {
@@ -192,6 +214,30 @@ main{
 .heading{
     grid-column: 1 / -1;
     max-height: min-content;
+}
+.badges{
+    display: flex;
+    gap: 1.4rem;
+    justify-content: end;
+}
+.badges svg{
+    height: 1.4rem;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.badges svg:hover{
+    transform: scale(1.25);
+    fill: var(--sidebar-bg);
+}
+
+.badges svg:active{
+    transform: scale(0.9);
+}
+
+
+main > * > * > * {
+    /* outline: 1px solid black; */
 }
 
 /*================== ASIDE SECTION ================== */
@@ -209,6 +255,7 @@ aside > .cards{
     grid-template-rows: unset;
     align-content: start;      
     gap: 0.9rem;
+    width: 32ch;
 }
 aside > .cards p {
     font-size: 0.9rem;
@@ -217,9 +264,11 @@ aside > .cards p {
 .trending-profile{
     display: flex;
     gap: 1rem;
+    cursor: pointer;
 }
 .trending-profile > .avatar {
   height: 3rem;
+  width: 3rem;
   border-radius: 50%; 
   object-fit: cover;  
 }
