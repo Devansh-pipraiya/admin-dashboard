@@ -1,15 +1,8 @@
 *{
-    /* outline: 2px solid black; */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-/* img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-} */
 
 :root{
     --fonts : Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -91,16 +84,16 @@ header > svg {
   width: 3.6rem;
   border-radius: 50%; 
   object-fit: cover;  
-  /* transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
-  cursor: zoom-in; */
+  cursor: zoom-in;
 }
-/* .profile-big > .avatar:hover{
+.profile-big > .avatar:hover{
     transform: scale(4);
     z-index: 100;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border: 2px solid white;
-} */
+}
 .profile-info{
     min-width: max-content;
 }
@@ -203,7 +196,7 @@ main{
     grid-template-rows: auto 1fr auto;
     border-radius: 12px;
     padding: 1rem;
-    box-shadow: inset 0 0 0 var(--card-border), 2px 2px 6px rgba(0, 0, 0, 0.08); /* explicitly defining inset 0 */
+    box-shadow: inset 0 0 0 var(--card-border), 2px 2px 6px rgba(0, 0, 0, 0.08);
     transition: all 0.2s ease-out;
 }
 
@@ -219,26 +212,60 @@ main{
     display: flex;
     gap: 1.4rem;
     justify-content: end;
+    align-items: center;
 }
+
+/* Base style for all items in badges (svgs, links, or triggers) */
+.badges > * {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
 .badges svg{
     height: 1.4rem;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, fill 0.2s ease-in-out;
 }
-
 .badges svg:hover{
     transform: scale(1.25);
     fill: var(--sidebar-bg);
 }
-
 .badges svg:active{
     transform: scale(0.9);
 }
 
-
-main > * > * > * {
-    /* outline: 1px solid black; */
+/* SCREENSHOT PREVIEW LOGIC */
+.screenshot-trigger {
+    position: relative;
 }
+
+.screenshot-preview {
+    position: absolute;
+    bottom: 0;          /* Align bottom edge with the icon */
+    right: 140%;       /* Pop out to the LEFT of the icons */
+    width: 450px;      
+    max-width: 60vw;  
+    height: auto;      
+    max-height: 400px; 
+    object-fit: contain;
+    border-radius: 12px;
+    border: 4px solid white;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    opacity: 0;       
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(0.4); 
+    transform-origin: bottom right;
+    z-index: 500;
+}
+
+.screenshot-trigger:hover .screenshot-preview {
+    opacity: 1;
+    transform: scale(1);
+}
+
 
 /*================== ASIDE SECTION ================== */
 
