@@ -13,6 +13,8 @@
     --card-border:     #9fc3eb;
     --text-primary:    #1a1a2e;
     --text-muted:      #8a94a6;
+    --button-hover:    #25507d;
+    --button-active:   #142d47; 
 }
 
 body{
@@ -115,7 +117,18 @@ header > svg {
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
+
+.buttons > button:hover{
+    background-color: var(--button-hover);
+}
+
+.buttons > button:active{
+    background-color: var(--button-active);
+    transform: scale(0.96);
+}
+
 
 /*================== NAV SECTION ================== */
 
@@ -142,11 +155,15 @@ nav a{
     /* font-size: calc(0.4rem + 1vw ); */
     text-decoration: none;
     color: var(--sidebar-text);
-
     display: flex;
     align-items: center;
     gap:1rem;
-    cursor: pointer;
+    /* To remove Highligting / Select effect */
+    -webkit-user-select: none; 
+    -moz-user-select: none;   
+    -ms-user-select: none;     
+    user-select: none; 
+    transition: all 0.2s ease, transform 0.1s ease;
 }
 nav svg{
     height:1.4rem;
@@ -154,15 +171,35 @@ nav svg{
     fill: currentColor;
 }
 
-a:first-child{
+nav a:first-child{
     font-size: 1.6rem;
     /* font-size: calc(1rem + 1vw ); */
     font-weight: 600;
     gap: 0.5rem;
 }
-a:first-child svg{
+nav a:first-child svg{
     height: 2.4rem;
-    /* height: calc(1rem + 1vw ); */
+}
+
+nav a:hover{
+    color:var(--card-bg);
+    cursor: pointer;
+}
+nav a:active{
+    color:var(--sidebar-text);
+    transform: scale(0.96); 
+}
+
+.profile-info a {
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.profile-info a:hover {
+    text-decoration: underline;
+    color: var(--sidebar-bg);
 }
 
 /*================== MAIN SECTION ================== */
