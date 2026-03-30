@@ -6,15 +6,15 @@
 
 :root{
     --fonts : Roboto, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --sidebar-bg:      #1a3a5c;
-    --sidebar-text:    #cde0f5;
-    --page-bg:         #f4f7fa;
-    --card-bg:         #ffffff;
-    --card-border:     #9fc3eb;
-    --text-primary:    #1a1a2e;
-    --text-muted:      #8a94a6;
-    --button-hover:    #25507d;
-    --button-active:   #142d47; 
+    --sidebar-bg:#163f72;
+    --sidebar-text:#c5ddf5;
+    --page-bg:      #f0f5fb;
+    --card-bg:      #ffffff;
+    --card-border:  #b3cfe8;
+    --text-primary: #1a2a3a;
+    --text-muted:   #6b88a3;
+    --button-hover: #215da3;
+    --button-active:#3b82c4;
 }
 
 body{
@@ -136,23 +136,17 @@ nav{
     grid-area: nav;
     background-color: var(--sidebar-bg);
     color: var(--sidebar-text);
-
     display: grid;
     grid-template-rows: repeat(auto-fill, minmax(3rem,1fr));
-    /* grid-template-rows: repeat(auto-fill, minmax(calc(1.2rem + 2vw),1fr)); */
-    
     font-weight: 500;
-    /* font-size: 1.4rem; */
-    /* place-items:center; */
     justify-content: center;
     align-items: center;
     justify-items: start;
-    padding-top: 1rem;
+    padding: 1rem;
 }
 
 nav a{
-    font-size: 1.2rem;
-    /* font-size: calc(0.4rem + 1vw ); */
+    font-size: clamp( 1rem , 1vw + 0.2rem , 1.5rem);
     text-decoration: none;
     color: var(--sidebar-text);
     display: flex;
@@ -166,19 +160,17 @@ nav a{
     transition: all 0.2s ease, transform 0.1s ease;
 }
 nav svg{
-    height:1.4rem;
-    /* height: calc(0.4rem + 1vw ); */
+    height:clamp( 1rem , 1vw + 0.3rem , 1.5rem);
     fill: currentColor;
 }
 
 nav a:first-child{
-    font-size: 1.6rem;
-    /* font-size: calc(1rem + 1vw ); */
+    font-size: clamp( 1.2rem , 1vw + 0.6rem , 1.9rem);
     font-weight: 600;
     gap: 0.5rem;
 }
 nav a:first-child svg{
-    height: 2.4rem;
+    height: clamp( 1.5rem , 1vw + 0.9rem , 2.5rem);
 }
 
 nav a:hover{
@@ -196,7 +188,6 @@ nav a:active{
     font-size: inherit;
     font-weight: inherit;
 }
-
 .profile-info a:hover {
     text-decoration: underline;
     color: var(--sidebar-bg);
@@ -244,6 +235,7 @@ main{
 .heading{
     grid-column: 1 / -1;
     max-height: min-content;
+    color: var(--text-primary);
 }
 .badges{
     display: flex;
